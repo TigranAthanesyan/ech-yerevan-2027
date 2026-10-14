@@ -1,10 +1,9 @@
-import { getDictionary } from "./dictionaries";
+import { Hero } from "./components/hero";
 
-export default async function Home() {
-  const dict = await getDictionary();
+export default function Home() {
   return (
     <main>
-      <h1>{dict.home.heading}</h1>
+      <Hero />
     </main>
   );
 }

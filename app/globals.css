@@ -1,1 +1,54 @@
 @import "tailwindcss";
+
+@theme {
+  /* Official palette (brand guideline p.3) */
+  --color-ech-red: #e60046;
+  --color-ech-blue: #0f23a0;
+  --color-ech-navy: #000f3c; /* "Dark Blue" in the guideline */
+  --color-ech-pink: #e6236e;
+  --color-ech-grey: #f0f0f0;
+
+  /* Derived from the artwork gradients, not official */
+  --color-ech-blue-deep: #02124a;
+  --color-ech-pink-deep: #870f28;
+
+  /* Brand font is Soleil (licence and Armenian glyphs unresolved), so these are fallbacks for now */
+  --font-sans: "Soleil", "Noto Sans Armenian", system-ui, sans-serif;
+}
+
+/* Main colourway. Blue is decided; the pink theme is only a switch and is not planned for use. */
+:root,
+[data-theme="blue"] {
+  --brand: var(--color-ech-blue);
+  --brand-deep: var(--color-ech-blue-deep);
+  --accent: var(--color-ech-pink);
+}
+
+[data-theme="pink"] {
+  --brand: var(--color-ech-pink);
+  --brand-deep: var(--color-ech-pink-deep);
+  --accent: var(--color-ech-blue);
+}
+
+@theme inline {
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-accent: var(--accent);
+}
+
+/* Temporary page background until the design is decided. Navy on Grey is 16.3:1. */
+body {
+  background-color: var(--color-ech-grey);
+  color: var(--color-ech-navy);
+}
+
+/* Anchor links must not hide under the sticky header (5.5rem tall) */
+html {
+  scroll-padding-top: 6.5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

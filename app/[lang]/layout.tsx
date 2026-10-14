@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getDictionary, hasLocale, locales } from "./dictionaries";
+import { Header } from "./components/header";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -21,7 +22,10 @@ export default async function RootLayout({
 
   return (
     <html lang={lang}>
-      <body>{children}</body>
+      <body>
+        <Header lang={lang} />
+        {children}
+      </body>
     </html>
   );
 }
