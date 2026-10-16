@@ -27,6 +27,9 @@ const en = {
     programme: "Programme",
     venueButton: "Venue",
   },
+  summary: {
+    text: "From 27 April to 2 May 2027, Yerevan welcomes Europe's best gymnasts for the Men's and Women's Artistic Gymnastics European Championships, held at the Karen Demirchyan Sports and Concerts Complex.",
+  },
   programme: {
     title: "Programme",
     note: "The programme is provisional and subject to change. The official schedule will be published here.",
@@ -39,6 +42,23 @@ const en = {
       { iso: "2027-05-01", day: "Saturday", date: "1 May", session: "Apparatus Finals, part 2" },
       { iso: "2027-05-02", day: "Sunday", date: "2 May", session: "Mixed Team Final" },
     ],
+  },
+  venue: {
+    title: "Venue",
+    name: "Karen Demirchyan Sports and Concerts Complex",
+    address: "Yerevan, Armenia",
+    mapLink: "Open in Google Maps",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Karen+Demirchyan+Sports+and+Concerts+Complex+Yerevan",
+    gettingThereTitle: "Getting there",
+    airport:
+      "The international airport is Zvartnots (EVN). Detailed transport and city information will be published here.",
+  },
+  contact: {
+    title: "Contact",
+    note: "Official contact details will be published here soon.",
+    federationLabel: "Organised with the Armenian Gymnastics Federation",
+    federationLink: "armgymnastics.am",
   },
 };
 
