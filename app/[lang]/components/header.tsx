@@ -8,7 +8,9 @@ const FEDERATION_HOST = "armgymnastics.am";
 
 const navLinks = [
   { id: "programme", href: "#programme" },
+  { id: "disciplines", href: "#disciplines" },
   { id: "venue", href: "#venue" },
+  { id: "tickets", href: "#tickets" },
   { id: "contact", href: "#contact" },
 ] as const;
 

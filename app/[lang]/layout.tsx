@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getDictionary, hasLocale, locales } from "./dictionaries";
+import { Footer } from "./components/footer";
 import { Header } from "./components/header";
 import "../globals.css";
 
@@ -25,6 +26,7 @@ export default async function RootLayout({
       <body>
         <Header lang={lang} />
         {children}
+        <Footer lang={lang} />
       </body>
     </html>
   );
