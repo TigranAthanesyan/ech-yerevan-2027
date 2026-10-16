@@ -42,11 +42,6 @@ body {
   color: var(--color-ech-navy);
 }
 
-/* Anchor links must not hide under the sticky header (5.5rem tall) */
-html {
-  scroll-padding-top: 6.5rem;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;

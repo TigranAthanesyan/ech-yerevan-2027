@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { HeaderShell } from "./header-shell";
 import { getDictionary, locales, type Locale } from "../dictionaries";
 
 // The pill shows the domain, not the translated name, so its width is the same in hy and en
@@ -18,7 +19,7 @@ export async function Header({ lang }: { lang: Locale }) {
   const { header } = await getDictionary();
 
   return (
-    <header className="sticky top-0 z-50 bg-brand text-white">
+    <HeaderShell>
       <div className="mx-auto flex h-22 max-w-7xl items-center justify-between gap-4 px-4 md:px-8">
         <a href={`/${lang}/`} className={focusRing}>
           <Image
@@ -81,6 +82,6 @@ export async function Header({ lang }: { lang: Locale }) {
           </a>
         </div>
       </div>
-    </header>
+    </HeaderShell>
   );
 }
