@@ -22,8 +22,9 @@ const en = {
     imageAlt:
       "A gymnast in a handstand on the balance beam.",
     dates: "27 April – 2 May 2027",
-    datesNote: "Dates are provisional and may change.",
-    discipline: "Artistic Gymnastics",
+    countdown: { label: "Kick-off in", days: "Days", hours: "Hours", minutes: "Minutes" },
+    tag: "European Championships",
+    title: "2027 Men's and Women's Artistic Gymnastics European Championships",
     city: "Yerevan, Armenia",
     venue: "Karen Demirchyan Sports and Concerts Complex",
     programme: "Programme",
