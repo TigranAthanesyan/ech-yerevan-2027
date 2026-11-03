@@ -15,7 +15,7 @@ const en = {
       contact: "Contact",
     },
     languageLabel: "Language",
-    languages: { hy: "ՀԱՅ", en: "EN" },
+    languages: { hy: "Հայերեն", en: "English" },
     federation: "Armenian Gymnastics Federation",
   },
   hero: {
@@ -34,7 +34,6 @@ const en = {
   },
   programme: {
     title: "Programme",
-    note: "The programme is provisional and subject to change. The official schedule will be published here.",
     sessions: [
       { iso: "2027-04-27", day: "Tuesday", date: "27 April", session: "Women's qualification, including the team medal decision" },
       { iso: "2027-04-28", day: "Wednesday", date: "28 April", session: "Men's qualification, including the team medal decision" },
@@ -44,6 +43,7 @@ const en = {
       { iso: "2027-05-01", day: "Saturday", date: "1 May", session: "Apparatus Finals, part 2" },
       { iso: "2027-05-02", day: "Sunday", date: "2 May", session: "Mixed Team Final" },
     ],
+    note: "The programme is provisional and subject to change. The official schedule will be published here.",
   },
   disciplines: {
     title: "Disciplines",
@@ -107,15 +107,35 @@ const en = {
       { question: "Where can I find official information?", answer: "On this site and on the website of the Armenian Gymnastics Federation, armgymnastics.am." },
     ],
   },
-  contact: {
-    title: "Contact",
-    note: "Official contact details will be published here soon.",
-    federationLabel: "Organised with the Armenian Gymnastics Federation",
-    federationLink: "armgymnastics.am",
+  partners: {
+    organisers: {
+      "european-gymnastics": {
+        name: "European Gymnastics",
+        role: "Organiser",
+      },
+      "armenian-gymnastics-federation": {
+        name: "Armenian Gymnastics Federation",
+        role: "Host federation",
+      },
+    },
+    partnersHeading: "European Gymnastics partners",
+    partners: {
+      "eurovision-sport": {
+        name: "European Broadcasting Union (EBU)",
+        role: "Official Broadcast Partner",
+      },
+    },
   },
   footer: {
-    federationLabel: "Organised with the Armenian Gymnastics Federation",
-    note: "All event information on this site is provisional and may change.",
+    title: "Contact",
+    eventLabel: "Event enquiries",
+    followUs: "Follow us",
+    addresses: {
+      "european-gymnastics": ["Avenue de la Gare 12", "1003 Lausanne"],
+      "armenian-gymnastics-federation": ["3 Moskovyan St.", "Yerevan 0001, Armenia"],
+    },
+    emailLabel: "Email",
+    phoneLabel: "Phone",
   },
 };
 

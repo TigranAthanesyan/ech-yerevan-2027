@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { HeaderShell } from "./header-shell";
+import { LanguageSwitcher } from "./language-switcher";
 import { getDictionary, locales, type Locale } from "../dictionaries";
 
 // The pill shows the domain, not the translated name, so its width is the same in hy and en
@@ -25,10 +26,10 @@ export async function Header({ lang }: { lang: Locale }) {
       <div className="mx-auto flex h-22 max-w-7xl items-center justify-between gap-4 px-4 md:px-8">
         <a href={`/${lang}/`} className={focusRing}>
           <Image
-            src="/images/logo-ech-yerevan-2027-flat.png"
+            src="/images/logo/ech-yerevan-2027-logo-white.svg"
             alt={header.logoAlt}
-            width={249}
-            height={192}
+            width={94}
+            height={74}
             priority
             className="h-18 w-auto"
           />
@@ -50,27 +51,12 @@ export async function Header({ lang }: { lang: Locale }) {
         </nav>
 
         <div className="flex items-center gap-3 md:gap-4">
-          <ul
-            aria-label={header.languageLabel}
-            className="flex text-sm font-bold"
-          >
-            {locales.map((locale) => (
-              <li key={locale}>
-                <a
-                  href={`/${locale}/`}
-                  lang={locale}
-                  aria-current={locale === lang ? "true" : undefined}
-                  className={`block px-3 py-2 ${focusRing} ${
-                    locale === lang
-                      ? "bg-white text-brand"
-                      : "hover:underline underline-offset-4"
-                  }`}
-                >
-                  {header.languages[locale]}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <LanguageSwitcher
+            current={lang}
+            locales={locales}
+            label={header.languageLabel}
+            names={header.languages}
+          />
 
           <a
             href={`https://${FEDERATION_HOST}`}

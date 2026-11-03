@@ -4,7 +4,7 @@
 
 Landing site for the 2027 Men's and Women's Artistic Gymnastics European Championships in Yerevan (`echyerevan2027.com`). Client: Doping Space. Armenian + English. A sibling site (`armgymnastics.am`) lives in a separate repo.
 
-Full context, decisions and open items: [docs/project-context.md](docs/project-context.md). Read it first. `docs/` is gitignored, so keep it in sync with `../docs/project-context.md` when you change it. Hosting notes are in `../docs/cpanel-armgymnastics.md`.
+Full context, decisions and open items: [docs/project-context.md](docs/project-context.md). Read it first, then the shared `../docs/project-context.md`. `docs/` is gitignored. Put event-site notes here and cross-cutting ones in the parent `../docs/`; do not duplicate. Files received from the federation (PDF, artwork) live in `../files/ech-yerevan-2027/`, not in `docs/`. Hosting notes are in `../docs/cpanel-armgymnastics.md`.
 
 ## Hard constraints
 

@@ -1,7 +1,7 @@
-import { Contact } from "./components/contact";
 import { Disciplines } from "./components/disciplines";
 import { Faq } from "./components/faq";
 import { Hero } from "./components/hero";
+import { Partners } from "./components/partners";
 import { Programme } from "./components/programme";
 import { Summary } from "./components/summary";
 import { Tickets } from "./components/tickets";
@@ -19,7 +19,7 @@ export default function Home() {
       <WhyYerevan />
       <Tickets />
       <Faq />
-      <Contact />
+      <Partners />
     </main>
   );
 }
