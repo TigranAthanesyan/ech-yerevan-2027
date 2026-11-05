@@ -79,9 +79,21 @@ const en = {
     mapLink: "Open in Google Maps",
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=Karen+Demirchyan+Sports+and+Concerts+Complex+Yerevan",
-    gettingThereTitle: "Getting there",
-    airport:
-      "The international airport is Zvartnots (EVN). Detailed transport and city information will be published here.",
+    airport: "International airport: Zvartnots (EVN)",
+    timelineTitle: "History",
+    timeline: [
+      { year: "1983", text: "The complex opens on 31 October." },
+      { year: "1987", text: "Its architects and engineers receive the USSR State Prize for the rotating-grandstand design." },
+      { year: "1996", text: "Hosts the 32nd Chess Olympiad." },
+      { year: "2001", text: "Hosts the World Wushu Championships." },
+      { year: "2008", text: "Reopens after a major renovation, 25 years to the day after the first opening." },
+      { year: "2010", text: "Hosts the ice hockey World Championship, Division III. Armenia wins silver." },
+      { year: "2010", text: "Deep Purple play a charity concert in the main arena." },
+      { year: "2011 · 2022", text: "Hosts the Junior Eurovision Song Contest." },
+      { year: "2015", text: "Charles Aznavour performs here." },
+      { year: "2023", text: "40th anniversary, marked with a bronze statue of Karen Demirchyan at the entrance." },
+    ],
+    photoCredit: "Photo: Wikimedia Commons",
   },
   whyYerevan: {
     title: "Why Yerevan",

@@ -47,3 +47,31 @@ body {
     scroll-behavior: smooth;
   }
 }
+
+/* Scroll reveal (components/reveal.tsx). Hidden only when JS runs and motion is allowed, so content never stays invisible. */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition:
+      opacity 0.8s ease-out,
+      transform 0.8s ease-out;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  /* From md up, points of the alternating timeline slide in from their own side. */
+  @media (min-width: 768px) {
+    .reveal.reveal-from-left {
+      transform: translateX(-2rem);
+    }
+
+    .reveal.reveal-from-right {
+      transform: translateX(2rem);
+    }
+  }
+
+  .reveal[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}

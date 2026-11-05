@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-// 27 April 2027, 00:00 Yerevan time (UTC+4)
-const START = Date.parse("2027-04-27T00:00:00+04:00");
+// 27 April 2027, 12:00 Yerevan time (UTC+4), same moment as the European Gymnastics event page
+const START = Date.parse("2027-04-27T12:00:00+04:00");
 
 type Labels = { label: string; days: string; hours: string; minutes: string };
 
