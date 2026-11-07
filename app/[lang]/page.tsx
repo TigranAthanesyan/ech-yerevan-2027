@@ -6,7 +6,7 @@ import { Programme } from "./components/programme";
 import { Summary } from "./components/summary";
 import { Tickets } from "./components/tickets";
 import { Venue } from "./components/venue";
-import { WhyYerevan } from "./components/why-yerevan";
+// import { WhyYerevan } from "./components/why-yerevan";
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
       <Programme />
       <Disciplines />
       <Venue />
-      <WhyYerevan />
+      {/* <WhyYerevan /> */}
       <Tickets />
       <Faq />
       <Partners />

@@ -7,6 +7,9 @@ import { getDictionary, locales, type Locale } from "../dictionaries";
 // and the language switch does not move when the language changes.
 const FEDERATION_HOST = "armgymnastics.am";
 
+// Hidden until armgymnastics.am is live. Set to true to bring the pill back.
+const SHOW_FEDERATION_LINK = false;
+
 const navLinks = [
   { id: "programme", href: "#programme" },
   { id: "disciplines", href: "#disciplines" },
@@ -58,16 +61,18 @@ export async function Header({ lang }: { lang: Locale }) {
             names={header.languages}
           />
 
-          <a
-            href={`https://${FEDERATION_HOST}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`flex items-center gap-2 border border-white/60 px-3 py-2 text-sm hover:bg-white hover:text-brand ${focusRing}`}
-          >
-            <span className="sr-only">{header.federation}: </span>
-            <span className="hidden lg:inline">{FEDERATION_HOST}</span>
-            <span aria-hidden="true">↗</span>
-          </a>
+          {SHOW_FEDERATION_LINK && (
+            <a
+              href={`https://${FEDERATION_HOST}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center gap-2 border border-white/60 px-3 py-2 text-sm hover:bg-white hover:text-brand ${focusRing}`}
+            >
+              <span className="sr-only">{header.federation}: </span>
+              <span className="hidden lg:inline">{FEDERATION_HOST}</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          )}
         </div>
       </div>
     </HeaderShell>
