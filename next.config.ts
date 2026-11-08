@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   // The default image optimizer needs a server.
   images: { unoptimized: true },
+  // Lets app/global-not-found.tsx render /404.html despite the separate root layouts.
+  experimental: { globalNotFound: true },
   turbopack: {
     rules: {
       "*.css": {

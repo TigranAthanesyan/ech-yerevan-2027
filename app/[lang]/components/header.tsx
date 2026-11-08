@@ -10,12 +10,12 @@ const FEDERATION_HOST = "armgymnastics.am";
 // Hidden until armgymnastics.am is live. Set to true to bring the pill back.
 const SHOW_FEDERATION_LINK = false;
 
-const navLinks = [
-  { id: "programme", href: "#programme" },
-  { id: "disciplines", href: "#disciplines" },
-  { id: "venue", href: "#venue" },
-  { id: "tickets", href: "#tickets" },
-  { id: "contact", href: "#contact" },
+const navIds = [
+  "programme",
+  "disciplines",
+  "venue",
+  "tickets",
+  "contact",
 ] as const;
 
 const focusRing =
@@ -40,10 +40,10 @@ export async function Header({ lang }: { lang: Locale }) {
 
         <nav aria-label={header.navLabel} className="hidden md:block">
           <ul className="flex gap-8 text-sm">
-            {navLinks.map(({ id, href }) => (
+            {navIds.map((id) => (
               <li key={id}>
                 <a
-                  href={href}
+                  href={`/${lang}/#${id}`}
                   className={`py-2 hover:underline underline-offset-8 ${focusRing}`}
                 >
                   {header.nav[id]}

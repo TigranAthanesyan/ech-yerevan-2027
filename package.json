@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "zip": "chmod -R u=rwX,go=rX public out && rm -f out.zip && cd out && zip -r ../out.zip . -x \"*.DS_Store\"",
+    "package": "npm run build && npm run zip"
   },
   "dependencies": {
     "next": "16.4.3",

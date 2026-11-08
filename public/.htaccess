@@ -1,4 +1,7 @@
 # Apache (cPanel): send the bare root to the default locale.
-# Temporary (302) while the setup is being tested; switch to 301 for production.
+# Permanent (301) since 2026-11-09. Browsers cache a 301, so use 302 again if the default language may change.
 RewriteEngine On
-RewriteRule ^$ /en/ [R=302,L]
+RewriteRule ^$ /en/ [R=301,L]
+
+# Unknown URLs outside /en/ and /hy/ get the bilingual 404 (the language folders override this).
+ErrorDocument 404 /404.html

@@ -172,6 +172,12 @@ const en = {
       },
     },
   },
+  notFound: {
+    tag: "404",
+    title: "Page not found",
+    text: "The page you are looking for does not exist or has been moved.",
+    home: "Back to home",
+  },
   footer: {
     title: "Contact",
     eventLabel: "Event enquiries",

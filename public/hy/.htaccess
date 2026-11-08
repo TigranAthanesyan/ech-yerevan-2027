@@ -1,0 +1,2 @@
+# Language-specific 404 page (ErrorDocument is per directory).
+ErrorDocument 404 /hy/404/
