@@ -124,7 +124,6 @@ const en = {
       { year: "2015", text: "Charles Aznavour performs here." },
       { year: "2023", text: "40th anniversary, marked with a bronze statue of Karen Demirchyan at the entrance." },
     ],
-    photoCredit: "Photo: Wikimedia Commons",
   },
   whyYerevan: {
     title: "Why Yerevan",
@@ -146,10 +145,12 @@ const en = {
     title: "FAQ",
     items: [
       { question: "When and where is the championship?", answer: "The Men's and Women's Artistic Gymnastics European Championships take place from 27 April to 2 May 2027 at the Karen Demirchyan Sports and Concerts Complex in Yerevan, Armenia. The dates are provisional." },
-      { question: "How do I get to Yerevan?", answer: "The international airport is Zvartnots (EVN). Detailed transport and city information will be published on this site." },
       { question: "Are tickets on sale?", answer: "Not yet. Information on prices and where to buy will be published on this site and on the official channels." },
-      { question: "Is the programme final?", answer: "No. The programme is provisional and subject to change. The official schedule will be published on this site." },
-      { question: "Where can I find official information?", answer: "On this site and on the website of the Armenian Gymnastics Federation, armgymnastics.am." },
+      { question: "Is the programme final?", answer: "No. The programme and the dates are provisional and subject to change. The official schedule will be published on this site." },
+      { question: "How do I get from the airport to the venue?", answer: "The international airport is Zvartnots (EVN). Information on transfers to the venue will be published on this site." },
+      { question: "Where can I watch the championship?", answer: "The European Broadcasting Union (EBU) is the official broadcast partner of European Gymnastics. Broadcast details will be announced on this site and on the official channels." },
+      { question: "I am a journalist or part of a delegation. Who do I contact?", answer: "For now, write to info@echyerevan2027.com. Information on accreditation will be published on this site." },
+      { question: "Where can I find official information?", answer: "On this site and through the official channels of the Armenian Gymnastics Federation and European Gymnastics." },
     ],
   },
   partners: {

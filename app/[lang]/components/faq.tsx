@@ -3,8 +3,23 @@ import { getDictionary } from "../dictionaries";
 export async function Faq() {
   const { faq } = await getDictionary();
 
+  // FAQ structured data (JSON-LD) so search engines can read the questions. `<` is escaped to keep the script tag safe.
+  const jsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  }).replace(/</g, "\\u003c");
+
   return (
     <section id="faq" className="bg-white pt-16 pb-4 lg:pt-24 lg:pb-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd }}
+      />
       <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
         <h2 className="text-3xl font-bold lg:text-5xl">{faq.title}</h2>
 

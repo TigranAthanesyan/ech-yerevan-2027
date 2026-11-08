@@ -1,8 +1,6 @@
 // Photo files and credits for the Disciplines cards, keyed by the apparatus `id` in the dictionaries.
-// All photos: Wikimedia Commons, CC BY-SA 4.0 (credit required, changes must be indicated). Details in docs/discipline-images.md.
+// All photos: Wikimedia Commons, CC BY-SA 4.0 (credit required, changes must be indicated; see photo-credits.ts). Details in docs/discipline-images.md.
 const commons = "https://commons.wikimedia.org/wiki/File:";
-
-export const LICENCE_URL = "https://creativecommons.org/licenses/by-sa/4.0/";
 
 type Photo = {
   src: string;

@@ -1,6 +1,7 @@
 import { getDictionary } from "../dictionaries";
 import { DisciplineCard } from "./discipline-card";
-import { LICENCE_URL, disciplinePhotos } from "./discipline-photos";
+import { disciplinePhotos } from "@/lib/discipline-photos";
+import { LICENCE_URL } from "@/lib/photo-credits";
 import { Reveal } from "./reveal";
 
 export async function Disciplines() {

@@ -10,7 +10,7 @@ Full context, decisions and open items: [docs/project-context.md](docs/project-c
 
 - **Static export only** (`output: 'export'` in `next.config.ts`). The host is cPanel shared hosting with no Node.js. Do not use anything that needs a server: route handlers on Request, cookies/headers, proxy/middleware, rewrites/redirects/headers config, server actions, ISR, `cacheComponents`, the default image optimizer. Check `node_modules/next/dist/docs/01-app/02-guides/static-exports.md` before adding features.
 - Every dynamic route needs `generateStaticParams`.
-- **i18n:** both languages are prefixed (`/hy/*`, `/en/*`) via `app/[lang]/`, with plain typed dictionaries and no i18n library. `/` only redirects to `/hy/` (`app/(redirect)/` plus `public/.htaccess`). Armenian is the default. Dictionaries: `app/[lang]/dictionaries/{en,hy}.ts` (`en.ts` defines the `Dictionary` type; `hy.ts` must match it). Read them with `getDictionary()`. All user-facing text goes in the dictionaries, never hardcoded in components.
+- **i18n:** both languages are prefixed (`/hy/*`, `/en/*`) via `app/[lang]/`, with plain typed dictionaries and no i18n library. `/` only redirects to `/en/` (`app/(redirect)/` plus `public/.htaccess`). English is the default (changed 2026-11-08: the audience is mainly European); Armenian stays fully available. Dictionaries: `app/[lang]/dictionaries/{en,hy}.ts` (`en.ts` defines the `Dictionary` type; `hy.ts` must match it). Read them with `getDictionary()`. All user-facing text goes in the dictionaries, never hardcoded in components.
 - Images and other static assets go in `public/images/`. Never commit the huge print artwork; export small optimised copies (see `docs/brand-book.md` section 14).
 - Content is static. No CMS, no backend. Russian is not in v1.
 - **Never** put credentials (cPanel, FTP, email, registrar) in the repo or in `docs/`.
@@ -25,7 +25,7 @@ Deployment is manual: upload the contents of `out/`. Method is not decided yet.
 
 ## Stack
 
-Next.js 16 (App Router, root `app/` dir, no `src/`), React 19, TypeScript, Tailwind CSS 4.
+Next.js 16 (App Router, root `app/` dir, no `src/`), React 19, TypeScript, Tailwind CSS 4. Shared non-component code (data, constants such as photo credits) goes in the root `lib/` folder, imported with the `@/lib/...` alias; `app/` is for routes and components only.
 
 ## Working style
 

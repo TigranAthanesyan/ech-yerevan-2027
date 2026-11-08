@@ -49,6 +49,12 @@ const contacts: {
   },
 ];
 
+// The federation's website and mailbox are hidden until armgymnastics.am is live.
+// They are not rendered at all (nothing in the HTML source); on desktop an empty row of the same height
+// keeps both columns lined up, on mobile there is no placeholder.
+// Set to true to bring them back (also reword the FAQ answer about official information).
+const SHOW_FEDERATION_SITE = false;
+
 const EVENT_EMAIL = "info@echyerevan2027.com";
 
 const linkClass =
@@ -65,6 +71,7 @@ export async function Footer({ lang }: { lang: Locale }) {
           <ul className="mt-8 grid gap-10 border-t border-white/20 pt-8 md:grid-cols-2 md:gap-0">
             {contacts.map(({ id, src, width, height, host, url, email, phone, socials }) => {
               const o = partners.organisers[id];
+              const hidden = id === "armenian-gymnastics-federation" && !SHOW_FEDERATION_SITE;
               return (
                 <li
                   key={id}
@@ -86,16 +93,22 @@ export async function Footer({ lang }: { lang: Locale }) {
                     <h3 className="mt-1 text-xl font-bold">{o.name}</h3>
                   </div>
                   <ul className="flex flex-col gap-2 text-base">
-                    <li>
-                      <a
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`font-bold ${linkClass}`}
-                      >
-                        {host} ↗
-                      </a>
-                    </li>
+                    {hidden ? (
+                      <li aria-hidden="true" className="hidden md:block">
+                        &nbsp;
+                      </li>
+                    ) : (
+                      <li>
+                        <a
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`font-bold ${linkClass}`}
+                        >
+                          {host} ↗
+                        </a>
+                      </li>
+                    )}
                     <li>
                       <address className="not-italic">
                         {footer.addresses[id].map((line) => (
@@ -105,12 +118,18 @@ export async function Footer({ lang }: { lang: Locale }) {
                         ))}
                       </address>
                     </li>
-                    <li>
-                      {footer.emailLabel}:{" "}
-                      <a href={`mailto:${email}`} className={linkClass}>
-                        {email}
-                      </a>
-                    </li>
+                    {hidden ? (
+                      <li aria-hidden="true" className="hidden md:block">
+                        &nbsp;
+                      </li>
+                    ) : (
+                      <li>
+                        {footer.emailLabel}:{" "}
+                        <a href={`mailto:${email}`} className={linkClass}>
+                          {email}
+                        </a>
+                      </li>
+                    )}
                     <li>
                       {footer.phoneLabel}:{" "}
                       <a

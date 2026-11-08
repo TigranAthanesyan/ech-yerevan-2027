@@ -1,9 +1,11 @@
 import { getImageProps } from "next/image";
 import { getDictionary } from "../dictionaries";
+import { LICENCE_URL, venuePhoto } from "@/lib/photo-credits";
 import { Reveal } from "./reveal";
 
 export async function Venue() {
-  const { venue } = await getDictionary();
+  const { venue, disciplines } = await getDictionary();
+  const { photos } = disciplines;
 
   // Art direction: portrait crop on mobile, wide photo from md up (same pattern as the hero).
   const common = { alt: "", fill: true, sizes: "100vw" };
@@ -95,7 +97,27 @@ export async function Venue() {
             })}
           </ol>
 
-          <p className="mt-10 text-right text-xs text-white/60">{venue.photoCredit}</p>
+          <p className="mt-10 text-right text-xs text-white/60">
+            {photos.label}: {venuePhoto.author} /{" "}
+            <a
+              href={venuePhoto.source}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-white"
+            >
+              {photos.source}
+            </a>{" "}
+            ·{" "}
+            <a
+              href={LICENCE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-white"
+            >
+              {photos.licence}
+            </a>{" "}
+            ({photos.cropped})
+          </p>
         </div>
       </div>
     </section>
