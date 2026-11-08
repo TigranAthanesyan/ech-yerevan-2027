@@ -4,7 +4,7 @@ export async function Faq() {
   const { faq } = await getDictionary();
 
   return (
-    <section id="faq" className="bg-white py-16 lg:py-24">
+    <section id="faq" className="bg-white pt-16 pb-4 lg:pt-24 lg:pb-8">
       <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
         <h2 className="text-3xl font-bold lg:text-5xl">{faq.title}</h2>
 
@@ -12,13 +12,13 @@ export async function Faq() {
           {faq.items.map((item) => (
             <details
               key={item.question}
-              className="group border-l-8 border-brand bg-ech-grey"
+              className="group bg-ech-grey"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-lg font-bold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand md:px-8 md:py-5 lg:text-xl [&::-webkit-details-marker]:hidden">
                 {item.question}
                 <span
                   aria-hidden="true"
-                  className="text-2xl text-brand group-open:rotate-45"
+                  className="text-2xl text-accent group-open:rotate-45"
                 >
                   +
                 </span>

@@ -138,6 +138,7 @@ const en = {
   },
   tickets: {
     title: "Tickets",
+    tag: "Coming soon",
     status: "Ticket information coming soon",
     note: "Tickets are not on sale yet. Details on prices and where to buy will be published here and on the official channels.",
   },

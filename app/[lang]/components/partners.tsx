@@ -17,13 +17,13 @@ export async function Partners() {
   const { partners: t } = await getDictionary();
 
   return (
-    <section id="partners" className="bg-white py-16 lg:py-24">
+    <section id="partners" className="bg-ech-grey py-10 lg:py-14">
       <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
         <div>
-          <h2 className="text-3xl font-bold lg:text-5xl">
+          <h2 className="text-2xl font-bold lg:text-3xl">
             {t.partnersHeading}
           </h2>
-          <ul className="mt-10 flex flex-wrap gap-4">
+          <ul className="mt-6 flex flex-wrap gap-4">
             {partners.map(({ id, src, width, height }) => {
               const p = t.partners[id];
               return (
