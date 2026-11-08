@@ -46,7 +46,6 @@ const en = {
       { iso: "2027-05-01", day: "Saturday", date: "1 May", tag: "Finals", session: "Apparatus Finals, part 2 (women and men)" },
       { iso: "2027-05-02", day: "Sunday", date: "2 May", tag: "Finals", session: "Mixed Team Final" },
     ],
-    note: "Provisional programme, subject to change. The official schedule will be published here.",
   },
   disciplines: {
     title: "Disciplines",
@@ -59,7 +58,6 @@ const en = {
       { value: "16", label: "teams in the Mixed Team Final" },
     ],
     tags: { mixed: "Mixed Team Final" },
-    tagsLegend: "The pink tag marks the apparatus used in the Mixed Team Final.",
     photos: { label: "Photo", labelPlural: "Photos", licence: "CC BY-SA 4.0", cropped: "cropped", source: "Wikimedia Commons" },
     details: { open: "Open details", close: "Close" },
     groups: [
@@ -81,7 +79,7 @@ const en = {
         apparatus: [
           { id: "vault-women", name: "Vault", mixed: true, description: "A fast run, an explosive push off the vaulting table, aerial flips and twists, and a controlled landing.", more: "The gymnast sprints along a runway of up to 25 m, jumps from a springboard and pushes off a vaulting table 125 cm high using both hands. In the brief flight that follows, the gymnast may perform flips and twists before landing on both feet. Height, distance, body control and landing precision are important in judging." },
           { id: "uneven", name: "Uneven Bars", mixed: false, description: "Continuous swings, releases and transitions between two bars set at different heights.", more: "The two bars are positioned at different heights, about 1.7 m and 2.5 m. Gymnasts swing around the bars, change grips and move between them, sometimes releasing and catching a bar in midair. Judges look for difficult skills performed with rhythm, precision and control, followed by a clean dismount." },
-          { id: "beam", name: "Balance Beam", mixed: true, description: "A combination of acrobatics, leaps, turns and balance performed on a beam just 10 cm wide.", more: "Just 10 cm wide, the beam is 5 m long and 125 cm above the floor. During a routine lasting up to 90 seconds, gymnasts perform jumps, turns, dance movements and acrobatic skills, sometimes including flips. Success requires remarkable balance, precision and control, and the routine ends with a dismount." },
+          { id: "beam", name: "Balance Beam", shortName: "Balance Beam", mixed: true, description: "A combination of acrobatics, leaps, turns and balance performed on a beam just 10 cm wide.", more: "Just 10 cm wide, the beam is 5 m long and 125 cm above the floor. During a routine lasting up to 90 seconds, gymnasts perform jumps, turns, dance movements and acrobatic skills, sometimes including flips. Success requires remarkable balance, precision and control, and the routine ends with a dismount." },
           { id: "floor-women", name: "Floor Exercise", mixed: true, description: "Acrobatic tumbling and dance movements blended with music, rhythm and artistic expression.", more: "On a 12 × 12 m sprung floor, gymnasts perform routines of up to 90 seconds accompanied by music. Powerful tumbling passes with flips and twists are combined with leaps, turns and choreography. Judges evaluate both the difficulty and execution of the skills, as well as the routine's artistry and musical expression." },
         ],
       },

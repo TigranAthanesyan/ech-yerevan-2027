@@ -17,6 +17,8 @@ type Phase = "closed" | "measuring" | "opening" | "open" | "closing";
 
 type Props = {
   name: string;
+  // Shorter name for the narrow phone card, when the full one does not fit. The open view uses `name`.
+  shortName?: string;
   description: string;
   more: string;
   mixedLabel?: string;
@@ -46,6 +48,7 @@ const DURATION = 450;
 // which would otherwise become the containing block of a `position: fixed` child.
 export function DisciplineCard({
   name,
+  shortName,
   description,
   more,
   mixedLabel,
@@ -182,11 +185,13 @@ export function DisciplineCard({
       ? to
       : from;
   // Photo height is set explicitly (and animated with the box) so it matches the card at both ends.
+  // In the open view on a phone the photo is wider than tall (shorter than the card's 4:3), so the text fits without scrolling.
+  const openRatio = to && to.width < 600 ? 0.6 : 0.75;
   const imageHeight =
     measuring && to
-      ? to.width * 0.75
+      ? to.width * openRatio
       : phase === "open" && to
-      ? Math.min(to.width * 0.75, to.height * 0.6)
+      ? Math.min(to.width * openRatio, to.height * 0.6)
       : (from?.width ?? 0) * 0.75;
   const expanded = phase === "open";
   // The measuring pass needs the long text visible, or the height would be too small.
@@ -211,26 +216,37 @@ export function DisciplineCard({
             width={photo.width}
             height={photo.height}
             alt=""
-            sizes="(min-width: 1280px) 400px, (min-width: 640px) 50vw, 100vw"
+            sizes="(min-width: 1280px) 400px, 50vw"
             className={`aspect-4/3 w-full object-cover transition-transform duration-500 motion-reduce:transition-none ${
               hoverZoom ? "group-hover:scale-105" : ""
             }`}
           />
           <span
             aria-hidden="true"
-            className="absolute right-3 top-3 grid size-9 place-items-center bg-white/90 text-brand"
+            className="absolute right-2 top-2 grid size-7 place-items-center bg-white/90 text-brand sm:right-3 sm:top-3 sm:size-9"
           >
-            <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <svg viewBox="0 0 24 24" className="size-4 sm:size-5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <path d="M12 5v14M5 12h14" />
             </svg>
           </span>
         </div>
-        <div className="flex flex-1 flex-col px-5 py-5">
-          <h4 className="text-lg font-bold lg:text-xl">{name}</h4>
-          <p className="mt-1 text-base">{description}</p>
+        {/* Phone: name only (two columns); the description is shown in the open view. */}
+        <div className="flex flex-1 flex-col px-3 py-4 min-[400px]:px-4 sm:px-5 sm:py-5">
+          {/* hyphens-auto uses the page language; wrap-break-word is the fallback for a word that is still too wide (e.g. "Հավասարակշռության"). */}
+          <h4 className="text-[0.9375rem] font-bold min-[400px]:text-base wrap-break-word hyphens-auto sm:text-lg lg:text-xl">
+            {shortName ? (
+              <>
+                <span className="sm:hidden">{shortName}</span>
+                <span className="max-sm:hidden">{name}</span>
+              </>
+            ) : (
+              name
+            )}
+          </h4>
+          <p className="mt-1 hidden text-base sm:block">{description}</p>
           {mixedLabel && (
-            <p className="mt-auto pt-4 text-sm font-bold">
-              <span className="bg-accent px-2 py-0.5 text-white">
+            <p className="mt-auto hidden pt-4 text-sm font-bold sm:block">
+              <span className="inline-block bg-accent px-2 py-0.5 text-white">
                 {mixedLabel}
               </span>
             </p>
@@ -308,14 +324,34 @@ export function DisciplineCard({
               {/* Same structure as the card (heading, text, tag at the bottom), so the last frame of the
                   closing animation lines up with the real card. */}
               <div
-                className={`flex min-h-0 flex-1 flex-col overscroll-contain px-5 py-5 ${
+                className={`flex min-h-0 flex-1 flex-col overscroll-contain px-3 py-4 min-[400px]:px-4 sm:px-5 sm:py-5 ${
                   settled ? "overflow-y-auto" : "overflow-hidden"
                 }`}
               >
-                <h4 id={titleId} className="text-lg font-bold lg:text-xl">
-                  {name}
+                {/* On a phone the name grows once the view is open, so it stands out from the text below. */}
+                <h4
+                  id={titleId}
+                  className={`font-bold wrap-break-word hyphens-auto transition-[font-size] duration-300 motion-reduce:transition-none sm:text-lg lg:text-xl ${
+                    showMore ? "text-xl" : "text-[0.9375rem] min-[400px]:text-base"
+                  }`}
+                >
+                  {shortName && !showMore ? (
+                    <>
+                      <span className="sm:hidden">{shortName}</span>
+                      <span className="max-sm:hidden">{name}</span>
+                    </>
+                  ) : (
+                    name
+                  )}
                 </h4>
-                <p className="mt-1 text-base">{description}</p>
+                {/* On a phone the card has no description, so hide it here until the view is open. */}
+                <p
+                  className={`text-base sm:mt-1 ${
+                    showMore ? "mt-4" : "max-sm:hidden"
+                  }`}
+                >
+                  {description}
+                </p>
                 {/* Collapsed to zero height until open, so it takes no space in the card-sized state. */}
                 <div
                   className="grid transition-[grid-template-rows,opacity] motion-reduce:transition-none"
@@ -326,7 +362,7 @@ export function DisciplineCard({
                   }}
                 >
                   <div className="overflow-hidden">
-                    <p className="mt-4 text-base">{more}</p>
+                    <p className="mt-3 text-base sm:mt-4">{more}</p>
                     <p className="mt-6 text-xs">
                       {labels.photo}:{" "}
                       <a
@@ -351,8 +387,12 @@ export function DisciplineCard({
                   </div>
                 </div>
                 {mixedLabel && (
-                  <p className="mt-auto pt-4 text-sm font-bold">
-                    <span className="bg-accent px-2 py-0.5 text-white">
+                  <p
+                    className={`mt-auto pt-4 text-sm font-bold ${
+                      showMore ? "" : "max-sm:hidden"
+                    }`}
+                  >
+                    <span className="inline-block bg-accent px-2 py-0.5 text-white">
                       {mixedLabel}
                     </span>
                   </p>

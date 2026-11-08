@@ -11,6 +11,8 @@
   /* Derived from the artwork gradients, not official */
   --color-ech-blue-deep: #02124a;
   --color-ech-pink-deep: #870f28;
+  /* Mid-tone of the Programme session panels (white at 10% over the blue gradient), used flat in Disciplines */
+  --color-ech-blue-soft: #22338a;
 
   /* Brand font is Soleil (licence and Armenian glyphs unresolved), so these are fallbacks for now */
   --font-sans: "Soleil", "Noto Sans Armenian", system-ui, sans-serif;

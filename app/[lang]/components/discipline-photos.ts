@@ -22,7 +22,7 @@ const womenFinal =
 export const disciplinePhotos: Record<string, Photo> = {
   "floor-men": {
     src: "/images/disciplines/floor-men.webp",
-    width: 1600,
+    width: 1270,
     height: 1200,
     author: seibert,
     source: `${commons}${menFinal}Floor_exercise_(Norman_Seibert)_-_DSC_7665.jpg`,

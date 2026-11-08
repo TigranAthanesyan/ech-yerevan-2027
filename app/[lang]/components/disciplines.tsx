@@ -16,28 +16,27 @@ export async function Disciplines() {
         <h2 className="text-3xl font-bold lg:text-5xl">{disciplines.title}</h2>
         <p className="mt-4 max-w-2xl text-base">{disciplines.intro}</p>
 
-        <dl className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-5">
+        {/* Phone: one row per stat (number left, label right). From md: five columns. */}
+        <dl className="mt-10 grid grid-cols-1 bg-ech-blue-soft px-2 py-2 text-white md:grid-cols-5 md:px-4 md:py-6">
           {disciplines.stats.map((s) => (
             <div
               key={s.label}
-              className="bg-ech-grey px-5 py-4 max-md:last:col-span-2"
+              className="flex items-center gap-4 px-4 py-3 max-md:border-t max-md:border-white/25 max-md:first:border-t-0 md:block md:border-l md:border-white/25 md:first:border-l-0"
             >
-              <dt className="text-4xl font-bold text-brand lg:text-5xl">
+              <dt className="w-14 shrink-0 text-3xl font-bold md:w-auto md:text-4xl lg:text-5xl">
                 {s.value}
               </dt>
-              <dd className="mt-1 text-sm">{s.label}</dd>
+              <dd className="text-base md:mt-1 md:text-sm">{s.label}</dd>
             </div>
           ))}
         </dl>
-
-        <p className="mt-10 max-w-3xl text-sm">{disciplines.tagsLegend}</p>
 
         {disciplines.groups.map((group) => (
           <div key={group.id} className="mt-10">
             <h3 className="text-2xl font-bold lg:text-3xl">{group.title}</h3>
             <ul
-              className={`mt-4 grid gap-3 sm:grid-cols-2 ${
-                group.id === "men" ? "lg:grid-cols-3" : "lg:grid-cols-4"
+              className={`mt-4 grid grid-cols-2 gap-3 ${
+                group.id === "men" ? "xl:grid-cols-3" : "xl:grid-cols-4"
               }`}
             >
               {group.apparatus.map((a, i) => {
@@ -46,6 +45,7 @@ export async function Disciplines() {
                     <Reveal delay={(i % 4) * 80} className="h-full">
                       <DisciplineCard
                         name={a.name}
+                        shortName={a.shortName}
                         description={a.description}
                         more={a.more}
                         mixedLabel={a.mixed ? tags.mixed : undefined}
@@ -88,18 +88,27 @@ export async function Disciplines() {
           {disciplines.format.steps.map((step, i) => (
             <li
               key={step.title}
-              className="border-l-8 border-brand bg-ech-grey px-5 py-4"
+              // Phone: number and title on one row, text below at full width. From md: number in its own left column.
+              className="grid grid-cols-[auto_1fr] items-center gap-x-3 gap-y-2 bg-ech-grey px-5 py-5 md:flex md:items-start md:gap-4"
             >
-              <p className="text-lg font-bold lg:text-xl">
-                <span className="text-brand">{i + 1}. </span>
-                {step.title}
-              </p>
-              <p className="mt-1 text-base">{step.text}</p>
+              <span
+                aria-hidden="true"
+                className="w-8 shrink-0 text-4xl leading-none font-bold md:w-9 md:text-5xl lg:w-11 lg:text-6xl"
+              >
+                {i + 1}
+              </span>
+              <div className="contents md:block">
+                <p className="text-lg font-bold lg:text-xl">
+                  <span className="sr-only">{i + 1}. </span>
+                  {step.title}
+                </p>
+                <p className="col-span-2 text-base md:mt-1">{step.text}</p>
+              </div>
             </li>
           ))}
         </ol>
 
-        <div className="mt-12 border-l-8 border-brand bg-ech-grey px-5 py-4 md:px-8 md:py-5">
+        <div className="mt-12 bg-ech-grey px-5 py-5 md:px-8 md:py-6">
           <h3 className="text-xl font-bold lg:text-2xl">
             {disciplines.scoring.title}
           </h3>
